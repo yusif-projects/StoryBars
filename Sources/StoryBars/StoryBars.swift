@@ -39,9 +39,6 @@ import UIKit
     /// Triggers when a bar fills up. Returns an index of the next bar.
     public var storyEndAction: ((Int) -> ())?
     
-    /// Assign an array of `Any` and the `numbersOfStories` will be overriden by the number of elements of this array.
-    public var storyItems: [Any] = []
-    
     private var widthConstraints: [NSLayoutConstraint] = []
     private var timer: Timer!
     private var fps: Double = 30
@@ -51,10 +48,6 @@ import UIKit
     private var stackView: UIStackView!
     
     public override func draw(_ rect: CGRect) {
-        if !storyItems.isEmpty {
-            numberOfStories = storyItems.count
-        }
-        
         if !(currentStoryIndex < numberOfStories) {
             print("📊 currentStoryIndex (\(currentStoryIndex)) has to be less numberOfStories (\(numberOfStories)).")
         }

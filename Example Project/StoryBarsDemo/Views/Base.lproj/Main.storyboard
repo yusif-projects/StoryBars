@@ -5,18 +5,20 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--MainVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="Test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="StoryBarsDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HVh-L0-ezq">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nNt-FN-db3" customClass="StoryBars" customModule="StoryBars">
                                 <rect key="frame" x="0.0" y="44" width="414" height="45"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -28,7 +30,7 @@
                                         <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="fullColor">
-                                        <color key="value" systemColor="systemGreenColor"/>
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="interItemSpacing">
                                         <real key="value" value="8"/>
@@ -40,7 +42,7 @@
                                         <integer key="value" value="7"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="currentStoryIndex">
-                                        <integer key="value" value="0"/>
+                                        <integer key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="horizontalMargins">
                                         <real key="value" value="16"/>
@@ -62,13 +64,18 @@
                             <constraint firstItem="0ec-F3-BGW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="B0R-bC-lRE"/>
                             <constraint firstItem="nNt-FN-db3" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="BYm-8q-359"/>
                             <constraint firstItem="0ec-F3-BGW" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Cyk-r7-EM3"/>
+                            <constraint firstItem="HVh-L0-ezq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="IzN-aQ-6Nt"/>
                             <constraint firstItem="0ec-F3-BGW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="KNM-ER-slB"/>
                             <constraint firstItem="nNt-FN-db3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OAZ-Od-gWF"/>
+                            <constraint firstItem="HVh-L0-ezq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bN7-lD-3hB"/>
+                            <constraint firstAttribute="bottom" secondItem="HVh-L0-ezq" secondAttribute="bottom" id="cY7-TX-0jg"/>
                             <constraint firstItem="0ec-F3-BGW" firstAttribute="top" secondItem="nNt-FN-db3" secondAttribute="bottom" id="jkd-vk-oMH"/>
                             <constraint firstItem="nNt-FN-db3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="u2M-9l-rfh"/>
+                            <constraint firstItem="HVh-L0-ezq" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="wxm-3m-bXy"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imageView" destination="HVh-L0-ezq" id="2tj-2e-3bT"/>
                         <outlet property="storyBars" destination="nNt-FN-db3" id="zfJ-Q9-8dw"/>
                         <outlet property="storyBarsInteractionView" destination="0ec-F3-BGW" id="Wms-zj-yTC"/>
                     </connections>
@@ -78,9 +85,4 @@
             <point key="canvasLocation" x="92.753623188405811" y="137.94642857142856"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>

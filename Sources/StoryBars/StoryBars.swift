@@ -26,7 +26,7 @@ import UIKit
     @IBInspectable public var interItemSpacing: CGFloat = 8
     @IBInspectable public var horizontalMargins: CGFloat = 16
     @IBInspectable public var barHeight: CGFloat = 4
-    @IBInspectable public var numberOfStories: Int = 0
+    @IBInspectable public var numberOfStories: Int = 3
     @IBInspectable public var currentStoryIndex: Int = 0
     @IBInspectable public var storyDuration: Double = 3
     @IBInspectable public var fps: Double = 30
@@ -42,6 +42,7 @@ import UIKit
     public var storyItems: [StoryItem] = []
     
     public override func draw(_ rect: CGRect) {
+        
         if !storyItems.isEmpty {
             numberOfStories = storyItems.count
         }

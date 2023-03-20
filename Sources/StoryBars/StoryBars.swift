@@ -36,6 +36,10 @@ import UIKit
             numberOfStories = storyItems.count
         }
         
+        if !(currentStoryIndex < numberOfStories) {
+            print("📊 currentStoryIndex (\(currentStoryIndex)) has to be less numberOfStories (\(numberOfStories)).")
+        }
+        
         if !self.subviews.isEmpty {
             for subview in self.subviews {
                 subview.removeFromSuperview()

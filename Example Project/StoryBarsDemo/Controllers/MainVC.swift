@@ -39,6 +39,10 @@ class MainVC: UIViewController {
                 strongSelf.imageView.image = strongSelf.photos[newStoryIndex]
             }
         }
+        
+        storyBars.doneAction = {
+            print("DONE")
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

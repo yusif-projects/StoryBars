@@ -92,6 +92,7 @@ import UIKit
                     
                     self.storyEndAction?(self.currentStoryIndex)
                 } else {
+                    self.doneAction?()
                     t.invalidate()
                 }
             } else {
@@ -154,8 +155,6 @@ import UIKit
             self.storyEndAction?(self.currentStoryIndex)
         } else {
             widthConstraints[currentStoryIndex].constant = goalWidth
-            
-            self.doneAction?()
         }
     }
     

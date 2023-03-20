@@ -44,7 +44,9 @@ import UIKit
     public override func draw(_ rect: CGRect) {
         super.draw(rect)
         
-        numberOfStories = storyItems.count
+        if !storyItems.isEmpty {
+            numberOfStories = storyItems.count
+        }
         
         if !self.subviews.isEmpty {
             for subview in self.subviews {

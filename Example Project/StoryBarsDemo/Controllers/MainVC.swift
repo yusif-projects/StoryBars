@@ -10,11 +10,16 @@ import StoryBars
 
 class MainVC: UIViewController {
     
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation { return .portrait }
+    
     @IBOutlet weak var storyBars: StoryBars!
     @IBOutlet weak var storyBarsInteractionView: StoryBarsInteractionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        overrideUserInterfaceStyle = .light
         
         storyBarsInteractionView.storyBars = storyBars
     }

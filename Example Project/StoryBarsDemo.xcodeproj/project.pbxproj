@@ -74,7 +74,7 @@
 		D4A2A65829C8E12D006AA4E4 = {
 			isa = PBXGroup;
 			children = (
-				D4A2A66329C8E12D006AA4E4 /* Test */,
+				D4A2A66329C8E12D006AA4E4 /* StoryBarsDemo */,
 				D4A2A66229C8E12D006AA4E4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,7 +87,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D4A2A66329C8E12D006AA4E4 /* Test */ = {
+		D4A2A66329C8E12D006AA4E4 /* StoryBarsDemo */ = {
 			isa = PBXGroup;
 			children = (
 				D487FEE129C8F76500396FDC /* Models */,
@@ -95,7 +95,7 @@
 				D487FEDF29C8F76100396FDC /* Controllers */,
 				D487FEDE29C8F75F00396FDC /* Resources */,
 			);
-			path = Test;
+			path = StoryBarsDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

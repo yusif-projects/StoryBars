@@ -265,6 +265,7 @@ public class StoryBarsInteractionView: UIView {
         self.addGestureRecognizer(tap)
         
         let hold = UILongPressGestureRecognizer(target: self, action: #selector(handleHold))
+        hold.minimumPressDuration = 1/2
         self.addGestureRecognizer(hold)
         
         super.draw(rect)

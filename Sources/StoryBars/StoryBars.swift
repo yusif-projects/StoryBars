@@ -93,6 +93,7 @@ import UIKit
                     self.storyEndAction?(self.currentStoryIndex)
                 } else {
                     self.doneAction?()
+                    
                     t.invalidate()
                 }
             } else {
@@ -129,6 +130,14 @@ import UIKit
         }
         
         timer.invalidate()
+    }
+    
+    private func reset() {
+        if !timer.isValid {
+            self.start()
+        }
+        
+        widthConstraints[currentStoryIndex].constant = 0
     }
     
     private func previous() {

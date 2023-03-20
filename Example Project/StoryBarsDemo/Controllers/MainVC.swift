@@ -40,8 +40,10 @@ class MainVC: UIViewController {
             }
         }
         
-        storyBars.doneAction = {
-            print("DONE")
+        storyBars.doneAction = { [weak self] in
+            if let strongSelf = self {
+                strongSelf.showAlert()
+            }
         }
     }
     
@@ -49,6 +51,20 @@ class MainVC: UIViewController {
         super.viewDidAppear(animated)
         
         storyBars.start()
+    }
+    
+    private func showAlert() {
+        let alertController = UIAlertController(title: "Done!", message: "All the stories are viewed.", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Restart", style: .default) { [weak self] _ in
+            if let strongSelf = self {
+                strongSelf.storyBars.reset()
+            }
+        }
+        
+        alertController.addAction(action)
+        
+        present(alertController, animated: true, completion: nil)
     }
 
 }

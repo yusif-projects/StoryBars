@@ -14,6 +14,8 @@ class MainVC: UIViewController {
     override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation { return .portrait }
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var topGradientView: UIImageView!
+    @IBOutlet weak var bottomGradientView: UIImageView!
     @IBOutlet weak var storyBars: StoryBars!
     @IBOutlet weak var storyBarsInteractionView: StoryBarsInteractionView!
     
@@ -47,11 +49,21 @@ class MainVC: UIViewController {
         }
         
         storyBars.showUIAction = {
-            print("SHOW UI")
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) { [weak self] in
+                if let strongSelf = self {
+                    strongSelf.topGradientView.alpha = 1
+                    strongSelf.bottomGradientView.alpha = 1
+                }
+            }
         }
         
         storyBars.hideUIAction = {
-            print("HIDE UI")
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) { [weak self] in
+                if let strongSelf = self {
+                    strongSelf.topGradientView.alpha = 0
+                    strongSelf.bottomGradientView.alpha = 0
+                }
+            }
         }
     }
     

@@ -19,6 +19,12 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HVh-L0-ezq">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="2vf-mZ-HX1">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottom-gradient" translatesAutoresizingMaskIntoConstraints="NO" id="Glk-tG-ZlT">
+                                <rect key="frame" x="0.0" y="672" width="414" height="224"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nNt-FN-db3" customClass="StoryBars" customModule="StoryBars">
                                 <rect key="frame" x="0.0" y="44" width="414" height="45"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -61,23 +67,33 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Glk-tG-ZlT" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.25" id="0ys-f4-jGe"/>
+                            <constraint firstItem="2vf-mZ-HX1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="4fJ-D6-XZL"/>
                             <constraint firstItem="0ec-F3-BGW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="B0R-bC-lRE"/>
                             <constraint firstItem="nNt-FN-db3" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="BYm-8q-359"/>
                             <constraint firstItem="0ec-F3-BGW" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Cyk-r7-EM3"/>
+                            <constraint firstItem="2vf-mZ-HX1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IqZ-cW-sdB"/>
                             <constraint firstItem="HVh-L0-ezq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="IzN-aQ-6Nt"/>
                             <constraint firstItem="0ec-F3-BGW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="KNM-ER-slB"/>
+                            <constraint firstItem="2vf-mZ-HX1" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.25" id="KlR-XB-Ym0"/>
                             <constraint firstItem="nNt-FN-db3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OAZ-Od-gWF"/>
+                            <constraint firstItem="Glk-tG-ZlT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rp4-HW-Vsl"/>
                             <constraint firstItem="HVh-L0-ezq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bN7-lD-3hB"/>
                             <constraint firstAttribute="bottom" secondItem="HVh-L0-ezq" secondAttribute="bottom" id="cY7-TX-0jg"/>
                             <constraint firstItem="0ec-F3-BGW" firstAttribute="top" secondItem="nNt-FN-db3" secondAttribute="bottom" id="jkd-vk-oMH"/>
+                            <constraint firstItem="Glk-tG-ZlT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="laC-qx-I7m"/>
+                            <constraint firstItem="2vf-mZ-HX1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nX2-G3-a3H"/>
                             <constraint firstItem="nNt-FN-db3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="u2M-9l-rfh"/>
+                            <constraint firstAttribute="bottom" secondItem="Glk-tG-ZlT" secondAttribute="bottom" id="vUb-L7-fM9"/>
                             <constraint firstItem="HVh-L0-ezq" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="wxm-3m-bXy"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomGradientView" destination="Glk-tG-ZlT" id="aGq-uP-k7H"/>
                         <outlet property="imageView" destination="HVh-L0-ezq" id="2tj-2e-3bT"/>
                         <outlet property="storyBars" destination="nNt-FN-db3" id="zfJ-Q9-8dw"/>
                         <outlet property="storyBarsInteractionView" destination="0ec-F3-BGW" id="Wms-zj-yTC"/>
+                        <outlet property="topGradientView" destination="2vf-mZ-HX1" id="8qg-Mx-WaJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -85,4 +101,8 @@
             <point key="canvasLocation" x="92.753623188405811" y="137.94642857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bottom-gradient" width="390" height="249"/>
+        <image name="top-gradient" width="390" height="249"/>
+    </resources>
 </document>

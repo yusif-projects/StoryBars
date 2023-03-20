@@ -10,8 +10,11 @@ import StoryBars
 
 class MainVC: UIViewController {
     
+    private var hideStatusBar: Bool = false { didSet { setNeedsStatusBarAppearanceUpdate() } }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation { return .portrait }
+    override var prefersStatusBarHidden: Bool { return hideStatusBar }
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var topGradientView: UIImageView!
@@ -48,7 +51,11 @@ class MainVC: UIViewController {
             }
         }
         
-        storyBars.showUIAction = {
+        storyBars.showUIAction = { [weak self] in
+            if let strongSelf = self {
+                strongSelf.hideStatusBar = false
+            }
+            
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) { [weak self] in
                 if let strongSelf = self {
                     strongSelf.topGradientView.alpha = 1
@@ -63,6 +70,10 @@ class MainVC: UIViewController {
                     strongSelf.topGradientView.alpha = 0
                     strongSelf.bottomGradientView.alpha = 0
                 }
+            } completion: { [weak self] _ in
+                if let strongSelf = self {
+                    strongSelf.hideStatusBar = true
+                }
             }
         }
     }
@@ -74,18 +85,22 @@ class MainVC: UIViewController {
     }
     
     private func showAlert() {
-        let alertController = UIAlertController(title: "Done!", message: "All the stories are viewed.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Done!", message: "All of the stories were viewed. Would you like to restart?", preferredStyle: .alert)
         
-        let action = UIAlertAction(title: "Restart", style: .default) { [weak self] _ in
+        let yes = UIAlertAction(title: "Yes", style: .default) { [weak self] _ in
             if let strongSelf = self {
                 strongSelf.storyBars.reset()
                 strongSelf.imageView.image = strongSelf.photos[strongSelf.storyBars.currentStoryIndex]
             }
         }
         
-        alertController.addAction(action)
+        alertController.addAction(yes)
+        
+        let no = UIAlertAction(title: "No", style: .cancel)
+        
+        alertController.addAction(no)
         
         present(alertController, animated: true, completion: nil)
     }
-
+    
 }

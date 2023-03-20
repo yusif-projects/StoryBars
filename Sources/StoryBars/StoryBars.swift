@@ -9,18 +9,6 @@ import UIKit
 
 @IBDesignable public class StoryBars: UIView {
     
-    public struct StoryItem {
-        var title: String!
-        var description: String!
-        var image: UIImage!
-        
-        init(title: String!, description: String!, image: UIImage!) {
-            self.title = title
-            self.description = description
-            self.image = image
-        }
-    }
-    
     @IBInspectable public var emptyColor: UIColor = .gray
     @IBInspectable public var fullColor: UIColor = .black
     @IBInspectable public var interItemSpacing: CGFloat = 8
@@ -40,7 +28,7 @@ import UIKit
     private var stackView: UIStackView!
     
     public var storyEndAction: ((Int) -> ())?
-    public var storyItems: [StoryItem] = []
+    public var storyItems: [Any] = []
     
     public override func draw(_ rect: CGRect) {
         

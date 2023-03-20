@@ -132,7 +132,7 @@ import UIKit
         timer.invalidate()
     }
     
-    private func reset() {
+    public func reset() {
         if !timer.isValid {
             self.start()
         }

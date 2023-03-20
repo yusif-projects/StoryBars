@@ -39,6 +39,9 @@ import UIKit
     /// Triggers when a bar fills up. Returns an index of the next bar.
     public var storyEndAction: ((Int) -> ())?
     
+    /// Triggers when all bars fill up.
+    public var doneAction: (() -> ())?
+    
     private var widthConstraints: [NSLayoutConstraint] = []
     private var timer: Timer!
     private var fps: Double = 30
@@ -151,6 +154,8 @@ import UIKit
             self.storyEndAction?(self.currentStoryIndex)
         } else {
             widthConstraints[currentStoryIndex].constant = goalWidth
+            
+            self.doneAction?()
         }
     }
     

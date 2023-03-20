@@ -17,8 +17,6 @@ class MainVC: UIViewController {
         super.viewDidLoad()
         
         storyBarsInteractionView.storyBars = storyBars
-        
-        storyBars.storyItems = [5, 6]
     }
     
     override func viewDidAppear(_ animated: Bool) {

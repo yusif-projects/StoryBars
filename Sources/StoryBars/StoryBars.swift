@@ -29,10 +29,11 @@ import UIKit
     @IBInspectable public var numberOfStories: Int = 3
     @IBInspectable public var currentStoryIndex: Int = 0
     @IBInspectable public var storyDuration: Double = 3
-    @IBInspectable public var fps: Double = 30
+    @IBInspectable public var hidesOnHold: Bool = true
     
     private var widthConstraints: [NSLayoutConstraint] = []
     private var timer: Timer!
+    private var fps: Double = 30
     private var goalWidth: CGFloat!
     private var stepWidth: CGFloat!
     private var backgroundView: UIView!
@@ -67,9 +68,11 @@ import UIKit
     }
     
     public func start() {
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) { [weak self] in
-            if let strongSelf = self {
-                strongSelf.alpha = 1
+        if hidesOnHold {
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) { [weak self] in
+                if let strongSelf = self {
+                    strongSelf.alpha = 1
+                }
             }
         }
         
@@ -108,13 +111,15 @@ import UIKit
     }
     
     private func stop() {
-        timer.invalidate()
-        
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) { [weak self] in
-            if let strongSelf = self {
-                strongSelf.alpha = 0
+        if hidesOnHold {
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) { [weak self] in
+                if let strongSelf = self {
+                    strongSelf.alpha = 0
+                }
             }
         }
+        
+        timer.invalidate()
     }
     
     private func previous() {

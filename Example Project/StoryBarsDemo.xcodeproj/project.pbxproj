@@ -12,7 +12,7 @@
 		D4A2A66C29C8E12D006AA4E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4A2A66A29C8E12D006AA4E4 /* Main.storyboard */; };
 		D4A2A66E29C8E12E006AA4E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4A2A66D29C8E12E006AA4E4 /* Assets.xcassets */; };
 		D4A2A67129C8E12E006AA4E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4A2A66F29C8E12E006AA4E4 /* LaunchScreen.storyboard */; };
-		D4A2A67A29C8E222006AA4E4 /* StoryBars in Frameworks */ = {isa = PBXBuildFile; productRef = D4A2A67929C8E222006AA4E4 /* StoryBars */; };
+		D4A3381F29C9011D0092CBB0 /* StoryBars in Frameworks */ = {isa = PBXBuildFile; productRef = D4A3381E29C9011D0092CBB0 /* StoryBars */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4A2A67A29C8E222006AA4E4 /* StoryBars in Frameworks */,
+				D4A3381F29C9011D0092CBB0 /* StoryBars in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,7 +115,7 @@
 			);
 			name = StoryBarsDemo;
 			packageProductDependencies = (
-				D4A2A67929C8E222006AA4E4 /* StoryBars */,
+				D4A3381E29C9011D0092CBB0 /* StoryBars */,
 			);
 			productName = Test;
 			productReference = D4A2A66129C8E12D006AA4E4 /* StoryBarsDemo.app */;
@@ -146,7 +146,7 @@
 			);
 			mainGroup = D4A2A65829C8E12D006AA4E4;
 			packageReferences = (
-				D4A2A67829C8E222006AA4E4 /* XCRemoteSwiftPackageReference "StoryBars" */,
+				D4A3381D29C9011D0092CBB0 /* XCRemoteSwiftPackageReference "StoryBars" */,
 			);
 			productRefGroup = D4A2A66229C8E12D006AA4E4 /* Products */;
 			projectDirPath = "";
@@ -402,20 +402,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D4A2A67829C8E222006AA4E4 /* XCRemoteSwiftPackageReference "StoryBars" */ = {
+		D4A3381D29C9011D0092CBB0 /* XCRemoteSwiftPackageReference "StoryBars" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/yusif-projects/StoryBars";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D4A2A67929C8E222006AA4E4 /* StoryBars */ = {
+		D4A3381E29C9011D0092CBB0 /* StoryBars */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D4A2A67829C8E222006AA4E4 /* XCRemoteSwiftPackageReference "StoryBars" */;
+			package = D4A3381D29C9011D0092CBB0 /* XCRemoteSwiftPackageReference "StoryBars" */;
 			productName = StoryBars;
 		};
 /* End XCSwiftPackageProductDependency section */

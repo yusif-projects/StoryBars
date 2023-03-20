@@ -76,13 +76,14 @@ You can find an [example project](https://github.com/yusif-projects/StoryBars/tr
 
 ### Example using UIStoryBoard Interface Builder:
 
-- Drag and drop a `UIView` object from the ***object library***.
-- In the ***identity inspector*** change the class from `UIView` to `StoryBars`.
-- Customize the parameters in the ***attributes inspector***.
-- Drag and drop another `UIView` object from the ***object library***.
-- In the ***identity inspector*** change the class from `UIView` to `StoryBarsInteractiveView`.
-- Connect both the `StoryBars` and `StoryBarsInteractiveView` objects to your controller by creating outlets.
-- Assign the `StoryBars` object to `StoryBarsInteractiveView` object's `storyBars` property.
+- Drag and drop a `UIView` object from the ***object library***;
+- In the ***identity inspector*** change the class from `UIView` to `StoryBars`;
+- Customize the parameters in the ***attributes inspector***;
+- Drag and drop another `UIView` object from the ***object library***;
+- In the ***identity inspector*** change the class from `UIView` to `StoryBarsInteractiveView`;
+- Connect both the `StoryBars` and `StoryBarsInteractiveView` objects to your controller by creating outlets;
+- Assign the `StoryBars` object to `StoryBarsInteractiveView` object's `storyBars` property;
+- Add an action that happens when a bar fills up by assigning a body to the `StoryBars` object's `storyEndAction` method.
 
 ```swift
 class ViewController: UIViewController {
@@ -94,6 +95,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         storyBarsInteractiveView.storyBars = storyBars
+        
+        storyBars.storyEndAction = { newStoryIndex in
+            // Handler
+        }
     }
 
 }

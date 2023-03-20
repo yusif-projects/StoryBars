@@ -22,6 +22,10 @@ class MainVC: UIViewController {
         overrideUserInterfaceStyle = .light
         
         storyBarsInteractionView.storyBars = storyBars
+        
+        storyBars.storyEndAction = { newStoryIndex in
+            // Handler
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

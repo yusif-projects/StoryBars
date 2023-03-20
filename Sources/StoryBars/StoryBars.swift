@@ -9,15 +9,38 @@ import UIKit
 
 @IBDesignable public class StoryBars: UIView {
     
+    /// Color of the single story bar's background.
     @IBInspectable public var emptyColor: UIColor = .gray
+    
+    /// Color of the single story bar's foreground.
     @IBInspectable public var fullColor: UIColor = .black
+    
+    /// Spacing among bars.
     @IBInspectable public var interItemSpacing: CGFloat = 8
+    
+    /// Distance from leftmost bar to the left side and from rightmost bar to the right side of the view.
     @IBInspectable public var horizontalMargins: CGFloat = 16
+    
+    /// Height of a single bar.
     @IBInspectable public var barHeight: CGFloat = 4
+    
+    /// Number of bars.
     @IBInspectable public var numberOfStories: Int = 3
+    
+    /// Index of a bar that should start animate.
     @IBInspectable public var currentStoryIndex: Int = 0
+    
+    /// Time that it takes a bar to fill.
     @IBInspectable public var storyDuration: Double = 3
+    
+    /// Assign `true` if you want to hide the bars when user holds the story and `false` if you don't.
     @IBInspectable public var hidesOnHold: Bool = true
+    
+    /// Triggers when a bar fills up. Returns an index of the next bar.
+    public var storyEndAction: ((Int) -> ())?
+    
+    /// Assign an array of `Any` and the `numbersOfStories` will be overriden by the number of elements of this array.
+    public var storyItems: [Any] = []
     
     private var widthConstraints: [NSLayoutConstraint] = []
     private var timer: Timer!
@@ -27,11 +50,7 @@ import UIKit
     private var backgroundView: UIView!
     private var stackView: UIStackView!
     
-    public var storyEndAction: ((Int) -> ())?
-    public var storyItems: [Any] = []
-    
     public override func draw(_ rect: CGRect) {
-        
         if !storyItems.isEmpty {
             numberOfStories = storyItems.count
         }
@@ -59,6 +78,7 @@ import UIKit
         super.draw(rect)
     }
     
+    /// Starts animating the bars.
     public func start() {
         if hidesOnHold {
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) { [weak self] in
@@ -85,7 +105,7 @@ import UIKit
         })
     }
     
-    public func handleTap(_ sender: UITapGestureRecognizer) {
+    fileprivate func handleTap(_ sender: UITapGestureRecognizer) {
         if sender.location(in: sender.view!).x >= sender.view!.frame.size.width / 2 {
             self.next()
         } else {
@@ -93,7 +113,7 @@ import UIKit
         }
     }
     
-    public func handleHold(_ sender: UILongPressGestureRecognizer) {
+    fileprivate func handleHold(_ sender: UILongPressGestureRecognizer) {
         switch sender.state {
         case .ended, .cancelled, .failed:
             self.start()
@@ -208,6 +228,39 @@ import UIKit
             barFillWidth.isActive = true
             
             widthConstraints.append(barFillWidth)
+        }
+    }
+    
+}
+
+public class StoryBarsInteractionView: UIView {
+    
+    /// Assign a `StoryBars` object to control it.
+    public var storyBars: StoryBars!
+    
+    public override func draw(_ rect: CGRect) {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        self.addGestureRecognizer(tap)
+        
+        let hold = UILongPressGestureRecognizer(target: self, action: #selector(handleHold))
+        self.addGestureRecognizer(hold)
+        
+        super.draw(rect)
+    }
+    
+    @objc private func handleTap(_ sender: UITapGestureRecognizer) {
+        if let storyBars = storyBars {
+            storyBars.handleTap(sender)
+        } else {
+            print("📊 StoryBarsInteractionView has no StoryBars object to control.")
+        }
+    }
+    
+    @objc private func handleHold(_ sender: UILongPressGestureRecognizer) {
+        if let storyBars = storyBars {
+            storyBars.handleHold(sender)
+        } else {
+            print("📊 StoryBarsInteractionView has no StoryBars object to control.")
         }
     }
     

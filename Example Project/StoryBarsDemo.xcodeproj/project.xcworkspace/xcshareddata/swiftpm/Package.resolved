@@ -5,9 +5,9 @@
         "package": "StoryBars",
         "repositoryURL": "https://github.com/yusif-projects/StoryBars",
         "state": {
-          "branch": "main",
-          "revision": "37a013e66477df5cfce61b86bacadd84180d111f",
-          "version": null
+          "branch": null,
+          "revision": "981fdac6976f106869b4938552490f5e15ca707c",
+          "version": "1.0.1"
         }
       }
     ]

@@ -15,6 +15,7 @@ A customizable UI element written in Swift that shows multiple animated progress
 # Table of contents
 * [🚚 Installation](#installation)
   * [Manually](#installation-1)
+  * [Xcode](#installation-2)
 * [🏗 Usage](#usage)
 * [📝 License](#license)
 

@@ -28,8 +28,8 @@ import UIKit
     @IBInspectable public var barHeight: CGFloat = 4
     @IBInspectable public var numberOfStories: Int = 0
     @IBInspectable public var currentStoryIndex: Int = 0
-    @IBInspectable public var storyDuration: TimeInterval = 3
-    @IBInspectable public var fps: TimeInterval = 30
+    @IBInspectable public var storyDuration: Double = 3
+    @IBInspectable public var fps: Double = 30
     
     private var widthConstraints: [NSLayoutConstraint] = []
     private var timer: Timer!

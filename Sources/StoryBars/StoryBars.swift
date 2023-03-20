@@ -83,7 +83,9 @@ import UIKit
     /// Starts animating the bars.
     public func start() {
         if hidesOnHold {
-            showUIAction?()
+            if alpha == 0 {
+                showUIAction?()
+            }
             
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) { [weak self] in
                 if let strongSelf = self {

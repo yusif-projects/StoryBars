@@ -45,6 +45,14 @@ class MainVC: UIViewController {
                 strongSelf.showAlert()
             }
         }
+        
+        storyBars.showUIAction = {
+            print("SHOW UI")
+        }
+        
+        storyBars.hideUIAction = {
+            print("HIDE UI")
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

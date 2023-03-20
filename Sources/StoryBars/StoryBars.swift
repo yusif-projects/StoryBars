@@ -38,12 +38,10 @@ import UIKit
     private var backgroundView: UIView!
     private var stackView: UIStackView!
     
-    public var storyChanged: ((Int) -> ())?
+    public var storyEndAction: ((Int) -> ())?
     public var storyItems: [StoryItem] = []
     
     public override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        
         if !storyItems.isEmpty {
             numberOfStories = storyItems.count
         }
@@ -63,6 +61,8 @@ import UIKit
             createStackView()
             createBars()
         }
+        
+        super.draw(rect)
     }
     
     public func start() {
@@ -72,7 +72,7 @@ import UIKit
                 if self.currentStoryIndex < self.numberOfStories - 1 {
                     self.currentStoryIndex = self.currentStoryIndex + 1
                     
-                    self.storyChanged?(self.currentStoryIndex)
+                    self.storyEndAction?(self.currentStoryIndex)
                 } else {
                     t.invalidate()
                 }
@@ -114,7 +114,7 @@ import UIKit
             widthConstraints[currentStoryIndex - 1].constant = 0
             currentStoryIndex = currentStoryIndex - 1
             
-            self.storyChanged?(self.currentStoryIndex)
+            self.storyEndAction?(self.currentStoryIndex)
         } else {
             widthConstraints[currentStoryIndex].constant = 0
         }
@@ -125,7 +125,7 @@ import UIKit
             widthConstraints[currentStoryIndex].constant = goalWidth
             currentStoryIndex = currentStoryIndex + 1
             
-            self.storyChanged?(self.currentStoryIndex)
+            self.storyEndAction?(self.currentStoryIndex)
         } else {
             widthConstraints[currentStoryIndex].constant = goalWidth
         }

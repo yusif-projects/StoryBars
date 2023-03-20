@@ -42,6 +42,12 @@ import UIKit
     /// Triggers when all bars fill up.
     public var doneAction: (() -> ())?
     
+    /// Triggers when bars are going to show.
+    public var showUIAction: (() -> ())?
+    
+    /// Triggers when bars are going to hide.
+    public var hideUIAction: (() -> ())?
+    
     private var widthConstraints: [NSLayoutConstraint] = []
     private var timer: Timer!
     private var fps: Double = 30
@@ -77,6 +83,8 @@ import UIKit
     /// Starts animating the bars.
     public func start() {
         if hidesOnHold {
+            showUIAction?()
+            
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) { [weak self] in
                 if let strongSelf = self {
                     strongSelf.alpha = 1
@@ -122,6 +130,8 @@ import UIKit
     
     private func stop() {
         if hidesOnHold {
+            hideUIAction?()
+            
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) { [weak self] in
                 if let strongSelf = self {
                     strongSelf.alpha = 0

@@ -67,6 +67,12 @@ import UIKit
     }
     
     public func start() {
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) { [weak self] in
+            if let strongSelf = self {
+                strongSelf.alpha = 1
+            }
+        }
+        
         timer = Timer.scheduledTimer(withTimeInterval: 1/fps, repeats: true, block: { t in
             
             if self.widthConstraints[self.currentStoryIndex].constant >= self.goalWidth {
@@ -103,6 +109,12 @@ import UIKit
     
     private func stop() {
         timer.invalidate()
+        
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn) { [weak self] in
+            if let strongSelf = self {
+                strongSelf.alpha = 0
+            }
+        }
     }
     
     private func previous() {

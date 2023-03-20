@@ -137,7 +137,11 @@ import UIKit
             self.start()
         }
         
-        widthConstraints[currentStoryIndex].constant = 0
+        currentStoryIndex = 0
+        
+        for widthConstraint in widthConstraints {
+            widthConstraints.constant = 0
+        }
     }
     
     private func previous() {

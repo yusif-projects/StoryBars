@@ -59,6 +59,7 @@ class MainVC: UIViewController {
         let action = UIAlertAction(title: "Restart", style: .default) { [weak self] _ in
             if let strongSelf = self {
                 strongSelf.storyBars.reset()
+                strongSelf.imageView.image = strongSelf.photos[strongSelf.storyBars.currentStoryIndex]
             }
         }
         

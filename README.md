@@ -82,6 +82,7 @@ You can find an [example project](https://github.com/yusif-projects/StoryBars/tr
 - Drag and drop another `UIView` object from the ***object library***.
 - In the ***identity inspector*** change the class from `UIView` to `StoryBarsInteractiveView`.
 - Connect both the `StoryBars` and `StoryBarsInteractiveView` objects to your controller by creating outlets.
+- Assign the `StoryBars` object to `StoryBarsInteractiveView` object's `storyBars` property.
 
 ```swift
 class ViewController: UIViewController {

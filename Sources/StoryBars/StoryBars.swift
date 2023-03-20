@@ -140,7 +140,7 @@ import UIKit
         currentStoryIndex = 0
         
         for widthConstraint in widthConstraints {
-            widthConstraints.constant = 0
+            widthConstraint.constant = 0
         }
     }
     

@@ -116,4 +116,4 @@ override func viewDidAppear(_ animated: Bool) {
 
 ## 📝 License  <a name="license"></a>
 
-[GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
+[Apache](https://choosealicense.com/licenses/apache-2.0)

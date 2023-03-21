@@ -12,6 +12,8 @@ A customizable UI element written in Swift that shows multiple animated progress
 
 ✅ Interactive!
 
+<img src="https://github.com/yusif-projects/StoryBars/blob/main/Images%20and%20Gifs/Demo.gif" width="480"/>
+
 # Table of contents
 * [🚚 Installation](#installation)
   * [Manually](#installation-1)
